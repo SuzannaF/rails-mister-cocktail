@@ -1,1 +1,3 @@
-
+<%= simple_form_for(@dose) do |f| %>
+  <%= f.input :gender, as: :radio_buttons, collection: [['0', 'female'], ['1', 'male']], label_method: :second, value_method: :first %>
+<% end %>
