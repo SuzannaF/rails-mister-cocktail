@@ -1,0 +1,45 @@
+.banner {
+  background: $baby-pink;
+  background: linear-gradient(120deg, rgba(255,154,181,1) 13%, rgba(255,193,191,1) 61%, rgba(251,213,199,1) 100%);
+  height: 500px;
+
+  &-title {
+    color: #BA01FF;
+    font-family: 'Las Enter Personal Use Only';
+    font-size: 100px;
+    -webkit-animation: neon6 1.5s ease-in-out infinite alternate;
+    animation: neon6 1.5s ease-in-out infinite alternate;
+
+    &:hover {
+      -webkit-animation: neon6 1.5s ease-in-out infinite alternate;
+      animation: neon6 1.5s ease-in-out infinite alternate;
+      text-decoration: none;
+      color: $baby-pink;
+    }
+  }
+}
+
+// WEBKIT NEON EFFECT
+
+@-webkit-keyframes neon6 {
+  from {
+    text-shadow: 0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 30px #fff,
+    0 0 40px #ff00de,
+    0 0 70px #ff00de,
+    0 0 80px #ff00de,
+    0 0 100px #ff00de,
+    0 0 150px #ff00de;
+  }
+  to {
+    text-shadow: 0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 15px #fff,
+    0 0 20px #ff00de,
+    0 0 35px #ff00de,
+    0 0 40px #ff00de,
+    0 0 50px #ff00de,
+    0 0 75px #ff00de;
+  }
+}

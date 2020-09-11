@@ -14,3 +14,13 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+
+@font-face {
+    font-family: 'Las Enter Personal Use Only';
+    src: url('LasEnterPersonalUseOnly.woff2') format('woff2'),
+    url('LasEnterPersonalUseOnly.woff') format('woff'),
+    url('LasEnterPersonalUseOnly.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
