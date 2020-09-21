@@ -12,4 +12,12 @@ url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 
 serialized_ingredients = open(url).read
 
-JSON.parse(serialized_ingredients)
+@ingredients = JSON.parse(serialized_ingredients)
+
+@ingredients['drinks'].each do |ingredient|
+  ingredient.each_value do |value|
+    ing = Ingredient.new
+    ing.name = value
+    ing.save
+  end
+end

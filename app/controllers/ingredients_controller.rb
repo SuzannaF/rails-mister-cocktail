@@ -20,5 +20,7 @@ class IngredientsController < ApplicationController
   end
 
   def destroy
+    @ingredient = Ingredient.find(params[:cocktail_id])
+    @ingredient.destroy
   end
 end
