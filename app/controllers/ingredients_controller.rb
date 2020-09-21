@@ -20,7 +20,8 @@ class IngredientsController < ApplicationController
   end
 
   def destroy
-    @ingredient = Ingredient.find(params[:cocktail_id])
+    @ingredient = Ingredient.find(params[:id])
     @ingredient.destroy
+    redirect_to cocktail_path(@cocktail)
   end
 end
