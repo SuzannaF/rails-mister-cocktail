@@ -29,15 +29,45 @@ end
 
 puts "Creating cocktails"
 
-image_index = ["https://res.cloudinary.com/dq9sg8kv9/image/upload/v1600714844/photo-1541807120430-f3f78c281225_c74lab.jpg", "https://res.cloudinary.com/dq9sg8kv9/image/upload/v1600714844/photo-1542849187-5ec6ea5e6a27_qpnlwg.jpg", "https://res.cloudinary.com/dq9sg8kv9/image/upload/v1600714842/photo-1559164767-bc9449f7ebd6_bcd029.jpg", "https://res.cloudinary.com/dq9sg8kv9/image/upload/v1600714842/photo-1547383529-2b2374860dc8_g7ok1v.jpg", "https://res.cloudinary.com/dq9sg8kv9/image/upload/v1600714842/photo-1536935338788-846bb9981813_zfancy.jpg", "https://res.cloudinary.com/dq9sg8kv9/image/upload/v1600714842/photo-1527628126150-086ff233b951_hff26e.jpg", "https://res.cloudinary.com/dq9sg8kv9/image/upload/v1600714842/photo-1547383529-2b2374860dc8_g7ok1v.jpg"]
+image_index = [
+  'https://res.cloudinary.com/dq9sg8kv9/image/upload/v1601043963/photo-1527271982979-83fea3eb3582_p5mgtw.jpg',
+  'https://res.cloudinary.com/dq9sg8kv9/image/upload/v1601043964/photo-1532117182044-031e7cd916ee_powrqj.jpg',
+  'https://res.cloudinary.com/dq9sg8kv9/image/upload/v1601043966/photo-1595981267035-7b04ca84a82d_eywbjj.jpg',
+  'https://res.cloudinary.com/dq9sg8kv9/image/upload/v1601043966/photo-1560508179-b2c9a3f8e92b_cllpkl.jpg',
+  'https://res.cloudinary.com/dq9sg8kv9/image/upload/v1601043968/photo-1560508180-03f285f67ded_m1vivh.jpg',
+  'https://res.cloudinary.com/dq9sg8kv9/image/upload/v1601043968/photo-1497534446932-c925b458314e_nali6g.jpg'
+]
 
 6.times do
   file = URI.open(image_index.shuffle!.pop)
   cocktail = Cocktail.new(
-    name: Faker::Dessert.flavor
+    name: [
+      'Pink Fantasy',
+      'Pink Panther',
+      'Fizzy Fluff',
+      'Cotton Candy Clash',
+      'Sparkly Dahlia',
+      'Prickly Rose Thorn'
+    ].shuffle!.pop
   )
+
   cocktail.photo.attach(io: file, filename: 'cocktail.jpg', content_type: 'image/jpg')
   cocktail.save
+
+######### DOSES
+
+  dose = Dose.new(
+    description: [
+      '1 Bunch',
+      '2 Knuckles',
+      '3 Fists',
+      '4 Sprinkles',
+      '5 Pieces',
+      '6 Gulps'
+    ].shuffle!.pop,
+    cocktail: cocktail,
+  )
+  dose.save
 end
 
 puts "Finished"
