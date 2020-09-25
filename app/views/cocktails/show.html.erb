@@ -1,12 +1,19 @@
-<div class="container">
-  <h1>Cocktail details</h1>
-  <p><%= @cocktail.name %></p>
-  <p><% @cocktail.ingredients.each do |ingredient| %></p>
-      <p><%= ingredient.name %></p>
-      <p><% ingredient.doses.each do |dose| %></p>
-            <p> <%= dose.description %></p>
-         <% end %>
+<div class="container d-flex flew-row">
+  <h1 class="align-self-end">Cocktail details</h1>
+  <div class="card" style="width: 25rem; height: 10rem;">
+    <% if @cocktail.photo.attached?  %>
+      <%= image_tag @cocktail.photo, class: "card-img-top" %>
     <% end %>
-  <%= link_to 'Add Ingredient', new_cocktail_dose_path(@cocktail) %>
-  <%= link_to 'Show All Cocktails', cocktails_path %>
+    <div class="card-body">
+      <h5 class="card-title"><%= @cocktail.name %></h5>
+      <% @cocktail.ingredients.each do |ingredient| %>
+          <p class="card-text"><%= ingredient.name %></p>
+          <% ingredient.doses.each do |dose| %>
+              <p class="card-text"> <%= dose.description %></p>
+             <% end %>
+        <% end %>
+      <%= link_to 'Add Ingredient', new_cocktail_dose_path(@cocktail) %>
+      <%= link_to 'Show All Cocktails', cocktails_path %>
+    </div>
+  </div>
 </div>
